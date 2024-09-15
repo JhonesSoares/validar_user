@@ -1,14 +1,14 @@
 import json
  
 def dados_db(user, paswaord):
-    CAMINHO = 'main\\dados_pessoas.json'
+    CAMINHO = 'main\\dados.json'
     with open(CAMINHO, 'r', encoding='utf8') as arquivo:
         dados = json.load(arquivo)
 
     for i in dados:
         if i['user'] == user and i['password'] == paswaord:
             return True
-    return False
+        return False
 
 def validar_acesso(entrada):
     if entrada in 's':
@@ -17,10 +17,9 @@ def validar_acesso(entrada):
         input_password = input('SENHA: ')
 
         if dados_db(input_user, input_password):
-            return f'Acesso confirmado!'
-        return f'Acesso negado!'
-    return
-    
+            return print(f'Acesso confirmado!')
+        return print(f'Acesso negado!')
+        
 def main():
     entrada = input('Deseja fazer login? sim[s] não[n]: ')
 
